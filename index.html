@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script>
+        function myfun(){
+            document.getElementById('text').innerHTML="Chnaged!";
+        }
+    </script>
+
+
+</head>
+<body>
+
+  <h1 id="text">It's you!</h1>
+
+  <button type="button"onclick="document.getElementById('text').style.display='none' ">Click me</button>
+  
+  
+  <button onclick="document.getElementById('date').innerHTML=Date()">The time is?</button>
+  <button onclick="this.innerHTML=Date()">The time is?</button>
+
+  <p id="date"></p>
+
+  <button onclick="displayDate()">The time!</button>
+
+  <p id="demo"></p>
+  <p id="demoTime">The date is : </p>
+
+
+
+<!-- Error Handling -->
+
+  <!-- <input id="demoinput" type="number" min="5" max="10" step="1">  -->
+
+  <input id="demoinput" type="text"> 
+  <button type="button" onclick="myFuncionErr()">Test input</button>
+  <p id="p01"></p>
+  <p id="demo11"></p>
+
+<script src="script.js"></script>
+</body>
+</html>
