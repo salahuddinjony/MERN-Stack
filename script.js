@@ -18,6 +18,7 @@ const person={
 };
 
 console.log(person.future());
+
 console.log(person.start());
 console.log(person.Name); 
 console.log(person['Age']);
@@ -134,6 +135,7 @@ fruits.pop();
 function myFunc(value){
     console.log(value)
 }
+
 
 fruits.forEach(myFunc); //for each
 
@@ -1105,7 +1107,6 @@ console.log(per1.fullName);
 
 //Constractor Functions
 
-
 function bluePrintperson(first, last, age){
   this.firstName=first;
   this.lastName=last;
@@ -1113,8 +1114,8 @@ function bluePrintperson(first, last, age){
   this.fullName=function(){
     return this.firstName +' '+ this.lastName;
   }
-
 }
+
 const shakin=new bluePrintperson('Shakin', 'Taharir', 10);//create new object for perticular persons
 const rakin=new bluePrintperson('Rakin', 'Shaharir', 15);
 const arosh=new bluePrintperson('Arosh', 'Yamin', 11);
@@ -1124,4 +1125,330 @@ console.log(shakin);
 //aslo add propertties for new created object
 shakin.country='Bangladesh';
 console.log(shakin);
+
+//But we can't add property from outside
+// bluePrintperson.country='Bangladesh'; //Can't do this witout prototypes
+
+
+
 console.log(shakin.fullName());
+
+
+//-----------JS Object Prototypes-----------
+bluePrintperson.prototype.country='Sri Lanka';//use prototype
+console.dir(rakin.country.toLocaleUpperCase()); //show 'Srilanka' 
+
+
+
+//-----------JS Object Iterables-----------
+
+
+
+/* 
+
+const nums=[1,2,3];
+const numIterator=nums[Symbol.iterator]();
+console.dir(numIterator.next());
+console.dir(numIterator.next());
+console.dir(numIterator.next());
+console.dir(numIterator.next()); 
+
+*/
+//Make object Iterator using Symbol.iterator, next(), done
+const myNumbers={};
+
+myNumbers[Symbol.iterator]=function(){
+  let n=0;
+  let done=false;
+  return{
+    next(){
+      n+=10;
+      if(n==100){ done=true}
+      return{
+        value:n,
+        done: done
+      }
+
+    }
+  }
+}
+
+
+for(let num of myNumbers){ //now use "for of" for object
+  console.dir(num);
+}
+
+
+
+
+
+//*************JS Sets ************* Collections of unique values
+//*************JS Map ************* Collections of unique values
+
+
+
+
+
+
+
+
+
+
+//-------**************JS Functions details**************-----------
+
+
+
+
+//functions declarations
+function sleep(){
+  console.log("I am going to sleep");
+}
+
+//functions Expressions
+
+// const Aa=function sleep1(){
+//   console.log("I am going to sleep");
+// }
+
+//Expressions of functions
+const Aa=function(){
+  console.log("I am going to sleep");
+}; //here also use semicolon(;) or not
+Aa();
+
+
+
+//Fuctions perameter and arguments
+
+function P(x,y){  //here x and y are the functions perameter --->name listed in the functions definations
+  return x*y; 
+}
+P(12,1); //here 12 and 1 are arguments -->The real values passed to(and received by) the funtions
+
+
+
+//The Arguments Object
+let xx=findMax(1,12,3,22,13,44,144);
+
+function findMax(){
+  let mx=-Infinity;
+  for(let i=0; i<arguments.length; i++){  //arguments is count the number of passed arguments
+    if(arguments[i]> mx){
+      mx=arguments[i];
+    }
+  }
+  return mx;
+
+} 
+console.log(Number(xx));
+
+
+//passed argument as a object then its change the value of object through the functions
+function Pp(x){
+  x.one=7;
+  return x.one * x.two; //7*5=35
+}
+
+//object
+const m={
+  one: 4,  // willl change to n=7;
+  two: 5
+};
+
+console.log(Pp(m));//passed by referrence
+console.log(m.one);//7
+
+
+
+//---------Function Invocation-----------
+function myFunction(a, b) {
+  return a * b;
+}
+console.log(myFunction(10, 2)); // Will return 20
+
+
+
+//---------Function call-----------
+const aA={
+  firstName: "Salman",
+  sleep: function(){
+    console.log(`${this.firstName} is sleeping!` );
+  }
+};
+aA.sleep();
+ 
+
+//call
+const per0={
+  // fullName: function(){
+  fullName: function(city, country){
+    return `${this.firstName} ${this.lastName} from ${ city} ,${ country}`;
+    // return this.firstName+ this.lastName+ ", "+ city +" ,"+ country;
+  }
+  
+};
+const per11={
+  firstName: "John",
+  lastName: " wick"
+};
+const per22={
+  firstName: "Crish",
+  lastName: "Gail"
+};
+ 
+// console.log(per0.fullName.call(per11));//I declare 'this 'is 'call(parameter)'
+console.log(per0.fullName.call(per11,"Cox's Bazar", 'Bangladesh'));//I declare 'this' is 'call(parameter,arguments1, arguments1)'
+
+
+//------Function apply()--------
+//The main different between call and apply is for the call arguments pass as a value but for apply we passed he arguments as a array
+console.log(per0.fullName.apply(per22,["Cox's Bazar", "Bangladesh"]));
+
+
+const Arr=[100,2,3,1,4,1,1,122];
+console.log(Math.max.apply(null, Arr));//null as a for no need to 'this' and its call the Arr for max value;
+
+
+//-----------JS Closures------------> Closures for Encapsulation
+
+
+
+// JavaScript variables can belong to:
+
+// The local scope or The global scope
+
+// Global variables can be made local (private) with closures.
+
+// Closures makes it possible for a function to have "private" variables.
+
+let count=0; //declare global varibale
+function cnt(){
+  return count++;
+}
+console.log(cnt());// 0
+console.log(cnt());// 1
+console.log(cnt());// 2
+console.log(cnt());// 3
+
+
+//Creating an IIFE (Immediately Invoked Function Expression) using JS Nested Functions(Inner Functions) 
+// and create it with" JS closure"
+const counterFn = (function () {
+  let count = 0; // Private counter variable
+
+  return function () {
+    return ++count;
+  };
+})();
+
+
+function myCounter() {
+  document.getElementById("counterBtn").innerHTML = counterFn();
+}
+
+// Conclusion
+// A closure is a function that has access to the parent scope, after the parent function has closed.
+
+
+
+
+
+//-------**************JS Class details**************-----------
+ 
+
+
+//Details of class
+class cAr{
+  constructor(name, year){
+    this.name=name;
+    this.year=year;
+  }
+
+  //method
+  run(speed){
+    console.log(this.name+ ' is runnig ' +speed);
+  }
+  
+}
+
+const BMW=new cAr('BMW',2021);
+const Yamaha=new cAr('Yamaha',2001);
+console.log(BMW, " " , Yamaha);
+
+BMW.run('1kmn/hr');
+
+
+
+//class inheritance
+class mobile{
+  constructor(brand){
+    this.name=brand;
+  
+  }
+  present(){
+    return 'I have a ' + this.name;
+  }
+}
+//inherit from mobile clsss
+class model extends mobile{
+  constructor(brand, mod){
+    super(brand);//indicate supperior class constructor's arguments of perameter
+    this.model=mod;
+  }
+  show(){
+    return this.present() + ' ' + 'it is a ' + this.model +' Series';
+  }
+}
+
+let newMobile=new model('Infinix', 'Note-30');
+
+console.log(newMobile.show());
+
+
+
+//JS Static Methods
+
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello() {
+    return "Hello!!";
+  }
+}
+
+const myCar = new Car("Ford");
+
+// You can call 'hello()' on the Car Class: for static
+console.log( Car.hello());
+
+// But NOT on a Car Object:
+// myCar.hello();
+// this will raise an error.
+
+ //If you want to use the myCar object inside the static method, you can send it as a parameter:
+
+/*  
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  static hello(x) {
+    return "Hello " + x.name;
+  }
+}
+const myCar = new Car("Ford");
+document.getElementById("demo").innerHTML = Car.hello(myCar);
+ */
+
+
+
+
+
+//--------------************JavaScript Asynchronous************--------------
+
+
+//--------------JavaScript Callbacks--------------
+
+
+
