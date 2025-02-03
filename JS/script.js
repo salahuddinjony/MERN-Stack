@@ -587,18 +587,20 @@ console.log(Tex);
 let NUmb = 12334445;
 let re = NUmb.toString().match(/[0-3]/g); // Convert number to string first
 console.log(re);
+*/
 
 
+//----------*********Error Handling**********-------------
 
-//Error Handling
 
-
+/* 
 try {
     adddlert("Welcome guest!");
   }
   catch(err) {
     document.getElementById("demo").innerHTML = err.message;
-  } */
+  } 
+*/
 
 //Throw
 /*
@@ -1448,7 +1450,169 @@ document.getElementById("demo").innerHTML = Car.hello(myCar);
 //--------------************JavaScript Asynchronous************--------------
 
 
-//--------------JavaScript Callbacks--------------
+
+
+//----------%%%%%%%--JavaScript Callbacks--%%%%%%%%%----------
 
 
 
+// "I will call back later!"
+
+// A callback is a function passed as an argument to another function
+
+// This technique allows a function to call another function
+
+// A callback function can run after another function has finished
+
+
+
+// function display(some){
+//   console.log(some);
+// }
+// function calculator(a, b){
+//   let result= a*b;
+//   display(result);
+
+// }
+// calculator(2,1);
+
+//if i want to control inner functions is call or not then we use 'callback'
+
+
+function display(some){
+  console.log(some);
+}
+function calculator(a, b,callback){
+  let result= a*b;
+  if(callback) callback(result);
+
+}
+calculator(2,1);//not display 2 
+calculator(2,1,display);//display 2 
+
+
+//--------Asynchronous JavaScript Functions-------
+
+/* setTimeout(function(){
+  console.log("This show after a sudden time!");
+}, 2000); */
+
+
+//its count down after a time Repeatedly
+/*
+ setInterval(function(){
+  console.log("Set Interval!");
+}, 100);
+ */
+
+
+// "I will finish later!"
+
+// Functions running in parallel with other functions are called asynchronous
+
+// A good example is JavaScript setTimeout()
+
+
+
+
+//Example of asychronous functions with callback functions(Example of course enrollment)
+
+/*
+
+const enrolled=true;
+const marks=80;
+
+function courseEnrolled(callback){
+  console.log("Course Enrollment is prosees...");
+
+  setTimeout(function(){
+    if(enrolled){
+      callback();
+    }
+    else{
+      console.log("Payment failed!");
+    }
+  },2000)
+}
+
+function progress(callback){
+  console.log("Your course is progress...");
+
+  setTimeout(function(){
+    if(marks>=80){
+      callback();
+
+    }else{
+      console.log("Sorry! You're not got enough marks to get the certificates!");
+
+    }
+  },1500)
+}
+
+function getcertificate(){
+  console.log("Congress! You're get the certificate!");
+}
+
+
+courseEnrolled(function(){
+  progress(getcertificate);
+})
+
+*/
+
+//clock
+/*
+setInterval(ClockFn,1000);
+
+function ClockFn(){
+let d=new Date();
+document.getElementById("clock").innerHTML=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+} 
+
+*/
+
+//also can 
+
+/* setInterval(function (){
+  let d=new Date();
+  document.getElementById("clock").innerHTML=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+},1000); */
+
+
+
+//----------%%%%%%%%-  JavaScript Promises  -%%%%%%%%-----------
+
+// "I Promise a Result!"
+
+// "Producing code" is code that can take some time
+
+// "Consuming code" is code that must wait for the result
+
+// A Promise is an Object that links Producing code and Consuming code
+
+
+
+
+let statusT=true;
+
+//promise definations
+const promise=new Promise(function(resolve,reject){
+  console.log("It's Processing...");
+  setTimeout(function(){
+    if(statusT){
+      resolve("It's Success!");
+    }else{
+      reject("It's Failed!");
+    }
+  },3000);
+
+});
+
+//promise call
+promise
+  .then(function(value){
+    console.log(value);
+  })
+  .catch(function(err){
+    console.log(err);
+  })
