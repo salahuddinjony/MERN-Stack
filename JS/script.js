@@ -1549,8 +1549,12 @@ function progress(callback){
   },1500)
 }
 
+
 function getcertificate(){
-  console.log("Congress! You're get the certificate!");
+  console.log("Preparing your certificates!");
+  setTimeout(function(){
+    console.log("Congress! You got the certificates");
+  },1000);
 }
 
 
@@ -1593,6 +1597,7 @@ document.getElementById("clock").innerHTML=d.getHours()+":"+d.getMinutes()+":"+d
 
 
 
+/* 
 let statusT=true;
 
 //promise definations
@@ -1604,7 +1609,7 @@ const promise=new Promise(function(resolve,reject){
     }else{
       reject("It's Failed!");
     }
-  },3000);
+  },1000);
 
 });
 
@@ -1616,3 +1621,96 @@ promise
   .catch(function(err){
     console.log(err);
   })
+
+ */
+
+
+
+  
+
+//Now we solve the before code of course enrolment with the promise
+//!!!!!!!!!!!!!!!!!!Very important topics!!!!!!!!!!!!!!!!!!
+  const enroll = false;
+  const marks = 90;
+  
+function Enrollment(){
+  console.log("Your payment is processing...");
+
+  const promise = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      if (enroll) {
+        resolve();
+      } else {
+        reject("Payment failed!");
+      }
+    }, 2000);
+  });
+return promise;
+  
+}
+
+function progress(){
+  console.log("Course on process...");
+
+
+  const promise = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      if (marks >= 80) {
+        resolve();
+      } else {
+        reject("Sorry! Your mark is not enough to get the certificate!");
+      }
+    }, 3000);
+  });
+
+return promise;
+  
+}
+
+
+function getcertificate(){
+  console.log("Preparing your certificates!");
+
+  const promise=new Promise(function(resolve,reject){
+    setTimeout(function(){
+      resolve("Congress! You got the certificates");
+    },1000);
+    // const promise=Promise.resolve("Congress! You got the certificates");//we can also this when only will have resolve 
+     
+
+  });
+return promise;
+}
+
+/* 
+//Secnce its looks very complex to understand at glance so its made easy " Async-await"
+Enrollment()
+  .then(progress)
+  .then(getcertificate)
+  .then(function(value){
+    console.log(value);
+  })
+  .catch(function(err){
+    console.log(err);
+  }) 
+    */
+
+
+//__________________JavaScript Async-await__________________
+
+
+async function Course() {
+
+  try{
+    await Enrollment();
+    await progress();
+    const message =await getcertificate();
+    console.log(message);
+  }catch(err){
+    console.log(err);
+  }
+  
+}
+
+//call the async function
+Course();
