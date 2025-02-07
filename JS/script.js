@@ -1338,7 +1338,7 @@ console.log(cnt());// 3
 const counterFn = (function () {
   let count = 0; // Private counter variable
 
-  return function () {
+  return function () { //Annonymous functions
     return ++count;
   };
 })();
@@ -1628,7 +1628,7 @@ promise
 
   
 
-//Now we solve the before code of course enrolment with the promise
+//Now we solve the before code(with callback) of course enrolment with the promise
 //!!!!!!!!!!!!!!!!!!Very important topics!!!!!!!!!!!!!!!!!!
   const enroll = false;
   const marks = 90;
@@ -1683,7 +1683,7 @@ return promise;
 }
 
 /* 
-//Secnce its looks very complex to understand at glance so its made easy " Async-await"
+//Secnce its looks very complex to understand at a glance then come Async-await, so its made easy " Async-await"
 Enrollment()
   .then(progress)
   .then(getcertificate)
@@ -1714,3 +1714,38 @@ async function Course() {
 
 //call the async function
 Course();
+
+
+
+
+
+
+
+
+
+
+
+
+
+//****************--------JavaScript HTML DOM--------**********************
+
+
+/* document.getElementById("demo").innerHTML="Hello Salah!";
+document.getElementsByTagName("p")
+document.getElementsByClassName()
+
+
+//for css selector
+document.querySelector(".selector")
+document.querySelector("#demo")
+document.querySelectorAll("h1.selector") / /for get "all class name" as a same name 
+
+*/
+
+
+const X = document.forms["frm1"];
+let Text = "";
+for (let i = 0; i < X.length ;i++) {
+  Text += X.elements[i].value + "<br>";
+}
+document.getElementById("demoform").innerHTML = Text;
