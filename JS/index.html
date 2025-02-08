@@ -79,6 +79,30 @@
 <input id="valid" type="text" placeholder="Enter a number" oninput="validinput()">
 <button type="button" onclick="validinput()">Enter</button>
 <p id="pvalid">You haven't typed anythings!</p>
+
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+<button onclick="myMove()" style="font-size: 20px;">animate</button>
+
+
+<!-- JS Event -->
+
+<h1 id="title" onclick="this.innerHTML='Hello world!'">Hi everyone!</h1> 
+
+
+Name: <input type="text" id="onchg" onchange="onChange()">
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+Mouse Over Me</div>
+
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+
+
 <script src="script.js"></script>
 </body>
 </html> 

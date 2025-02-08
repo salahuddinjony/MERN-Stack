@@ -214,6 +214,7 @@ const numFilter=numberList.filter(myFunctionFilter);
 console.log("The filter is:", numFilter);
 
 
+
 //reduce
 
 function myFunctionReduce(total , value, index, array){
@@ -1782,22 +1783,84 @@ function validatedForm() {
   return true; // If everything is valid, allow form submission
 }
 
-
 function validinput() {
   const x = document.getElementById("valid").value;
+  const p = document.getElementById("pvalid"); // Get the paragraph element
 
   // Check if the value is not a number
-  if(x!=''){
+  if (x !== '') {
     if (isNaN(x)) {
-      document.getElementById("pvalid").innerHTML = "Not a number";
-      // document.getElementById("valid").value='';
+      p.innerHTML = "Not a number";  // Correctly update the HTML content
+      p.style.color="red";
+      x='';
+      
     } else {
-      // If it's a valid number
-      document.getElementById("pvalid").innerHTML = "It is a number";
+      p.innerHTML = "It is a number"; // Correctly update the HTML content
+      p.style.color="black";
+      p.style.fontSize="30px";
     }
-  }else{
-    document.getElementById("pvalid").innerHTML = "It's Null text";
+  } else {
+    p.innerHTML = "It's Null text"; // Handle empty input case
+    p.style.color="red";
+  }
 
+}
+
+
+//--------DOM animations--------
+
+function myMove() {
+  const animate = document.getElementById("animate");
+  let pos = 0;
+  let id = setInterval(frame, 5); // Declare `id` before using it
+
+  function frame() {
+    if (pos < 400 - 50) { // Move until position reaches 350px
+      pos++;
+      animate.style.top = pos + 'px';
+      animate.style.left = pos + 'px';
+    } else {
+      clearInterval(id); // Stop the animation
+    }
   }
 }
 
+//----------JavaScript HTML DOM Events-------------
+function changeText(){
+  const title=document.querySelector("#title");
+  title.innerHTML="Hello World!";
+}
+
+
+
+//oninput, onchange
+
+function onChange(){
+  const x=document.querySelector("#onchg");
+  x.value=x.value.toUpperCase();
+}
+
+
+//onmouseover ,onmouseout
+
+function mOver(obj) {
+  obj.innerHTML = "Thank You"
+}
+
+function mOut(obj) {
+  obj.innerHTML = "Mouse Over Me"
+}
+
+
+// onmousedown, onmouseup, and onclick
+function mDown(obj) {
+  obj.style.backgroundColor = "#1ec5e5";
+  obj.innerHTML = "Release Me";
+}
+
+function mUp(obj) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="Thank You";
+}
+
+//-------JavaScript HTML DOM EventListener-------
