@@ -59,6 +59,26 @@
 
 <p id="demoform"></p>
 
+<img id="img" src="img.png">
+
+<p>Blaa bala bala</p>
+<script>
+  document.write(Date());
+</script>
+<p>Blaa bala bala</p>
+
+
+<form id="frm2" action="/action_page.php" onsubmit="return validatedForm()" method="post">
+  Name: <input type="text" name="fname" placeholder="Enter your name"><br>
+  Age: <input type="text" name="age" placeholder="Enter your age"><br><br>
+  <input type="submit" value="Enter">
+</form> 
+
+
+<!-- check is it num or not -->
+<input id="valid" type="text" placeholder="Enter a number" oninput="validinput()">
+<button type="button" onclick="validinput()">Enter</button>
+<p id="pvalid">You haven't typed anythings!</p>
 <script src="script.js"></script>
 </body>
-</html>
+</html> 

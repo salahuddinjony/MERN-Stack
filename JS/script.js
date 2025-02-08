@@ -1749,3 +1749,55 @@ for (let i = 0; i < X.length ;i++) {
   Text += X.elements[i].value + "<br>";
 }
 document.getElementById("demoform").innerHTML = Text;
+
+//Change attribute
+const element = document.getElementById("img");
+element.src = "test.jpg";
+  
+
+//document.write()
+// document.write("Hello Boss!");
+
+//--------JavaScript Forms----------
+
+function validatedForm() {
+  const form = document.forms["frm2"];
+  // const value = form[0].value.trim();  // we can use index for forms inside input elements
+  const value = form["fname"].value.trim();  // Remove spaces at the start and end
+  const age = form["age"].value;
+
+  // Check if name is empty or not a valid string
+  if (value === '' || !isNaN(value)) { // Check if it's empty or if it's a number (not a valid name)
+    alert("You must type a valid name (it should not be a number).");
+    form["fname"].value = '';  // Clear the name input field
+    return false; // Prevent form submission
+  }
+  // Check if age is not a number or is empty
+  if (isNaN(age) || age === '') {
+    alert("You must type your age");
+    form["age"].value = ''; // Clear the age input field
+    return false; // Prevent form submission
+  }
+
+  return true; // If everything is valid, allow form submission
+}
+
+
+function validinput() {
+  const x = document.getElementById("valid").value;
+
+  // Check if the value is not a number
+  if(x!=''){
+    if (isNaN(x)) {
+      document.getElementById("pvalid").innerHTML = "Not a number";
+      // document.getElementById("valid").value='';
+    } else {
+      // If it's a valid number
+      document.getElementById("pvalid").innerHTML = "It is a number";
+    }
+  }else{
+    document.getElementById("pvalid").innerHTML = "It's Null text";
+
+  }
+}
+
