@@ -1863,4 +1863,186 @@ function mUp(obj) {
   obj.innerHTML="Thank You";
 }
 
-//-------JavaScript HTML DOM EventListener-------
+
+// OnClick in JS
+
+
+/* document.getElementById("myBtn").onclick = displayDate;
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+} 
+
+*/
+
+
+
+//-------JavaScript HTML DOM EventListener-------*******
+
+
+// Syntax
+// element.addEventListener(event, function, useCapture);
+
+
+
+/*
+const event=document.getElementById("buttonid");
+event.addEventListener("click", function() {
+alert("Hello World!");
+}); 
+  
+*/
+
+//Or same as
+function lisener() {
+  alert("Hello World!");
+}
+
+const event = document.getElementById("buttonid");
+event.addEventListener("click", lisener); //dont use event.addEventListener("click", lisener()); cause here cant call or invoked the functions
+
+event.addEventListener("mouseover",function(){
+  event.style.color="blue";
+  event.style.fontSize=20+"px";
+});
+event.addEventListener("mouseout",function(){
+  event.style.color="red";
+  event.style.fontSize=15+"px";
+});
+
+
+window.addEventListener("resize", function(){
+  document.getElementById("resizedemo").innerHTML = Math.random()+1;
+});
+
+
+
+// Passing Parameters
+// When passing parameter values, use an "anonymous function" that calls the specified function with the parameters:
+
+
+/* function myFunction(a, b) {
+  document.getElementById("resizedemo").innerHTML = a * b;
+}
+document.getElementById("resizedemo").addEventListener("click", function() {
+  myFunction(2, 6);
+});
+ */
+
+// Event Bubbling or Event Capturing?
+
+document.getElementById("myP1").addEventListener("click", function() {
+  alert("You clicked the white element!");
+}, false);
+
+document.getElementById("myDiv1").addEventListener("click", function() {
+  alert("You clicked the orange element!");
+}, false);
+
+document.getElementById("myP2").addEventListener("click", function() {
+  alert("You clicked the white element!");
+}, true);
+
+document.getElementById("myDiv2").addEventListener("click", function() {
+  alert("You clicked the orange element!");
+}, true);
+
+
+// removeEventListerner
+function myFunction() {
+  document.getElementById("eventremove").innerHTML = Math.random();
+}
+
+document.getElementById("myDIV").addEventListener("mousemove", myFunction);
+
+// It’s necessary to put the removeEventListener call inside a function like removeHandler() for the following reasons:
+function removeHandler() { 
+  document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+}
+
+//or use for removeEventListener
+/* 
+function myFunction() {
+  document.getElementById("eventremove").innerHTML = Math.random();
+}
+function removeHandler() {
+  // The event listener is removed here after some action (e.g., button click)
+  document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+}
+document.getElementById("myDIV").addEventListener("mousemove", myFunction);
+// Call removeHandler when the button is clicked
+document.getElementById("removeButton").addEventListener("click", removeHandler); */
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+//-----Navigating Between Nodes----
+
+
+/*
+You can use the following node properties to navigate between nodes with JavaScript:
+
+.parentNode
+.childNodes[nodenumber]
+.firstChild
+.lastChild 
+.nextSibling
+.previousSibling 
+
+*/
+
+
+
+//Child parent relationsShip
+const p = document.querySelector("#id01");
+const pp = document.querySelector("#id02");
+
+// pp.innerHTML = p.firstChild.nodeValue;
+pp.innerHTML = p.childNodes[0].nodeValue;
+
+
+//textContent
+// console.log(p.textContent);  // Outputs the text inside the #id01 element
+// p.textContent = "New text content!";  // Updates the text of #id01
+
+
+
+
+
+
+//----------JavaScript HTML DOM Elements (Nodes)------------
+
+
+//crateElement,createTextChild, removeChild(child), replaceChild(para,child)
+
+const para = document.createElement("p");
+const node = document.createTextNode("It's adding a new tag for text with JS");
+para.appendChild(node);
+
+const elmnt = document.getElementById("appendcld");
+elmnt.insertBefore(para,p1);
+// elmnt.appendChild(para);
+
+
+
+//repalceChild
+/*
+
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+parent.replaceChild(para,child); 
+
+*/
