@@ -2046,3 +2046,31 @@ para.appendChild(node);
 parent.replaceChild(para,child); 
 
 */
+
+
+
+//------JavaScript HTML DOM Collections---
+
+
+// The getElementsByTagName() method returns an HTMLCollection object.
+// An HTMLCollection object is an array-like list (collection) of HTML elements.
+
+function collectPtag() {
+  const myCollection = document.getElementsByTagName("p");
+  for (let i = 0; i < myCollection.length; i++) {
+    myCollection[i].style.color = "red";
+  }
+}
+
+
+
+//---------JavaScript HTML DOM Node Lists----------
+
+/* 
+.A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes).
+
+.HTMLCollection items can be accessed by their name, id, or index number.
+
+.NodeList items can only be accessed by their index number. 
+
+*/
