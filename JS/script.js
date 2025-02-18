@@ -146,7 +146,7 @@ fruits.splice(2,2,"Lichy", "Coconut"); //add 2 elements and remove 1
 fruits.splice(0,1);//remove 1 elements
 
  
-//Array Method
+//---Array Method-----
    
 console.log(fruits.toString()); //convert array to string using toString()
 console.log(fruits.join(" * "));   
@@ -154,7 +154,7 @@ console.log(fruits.join(" * "));
 const totalArray=arr.concat(fruits);
 console.log(totalArray);
 
-//Array sorting
+//----Array sorting-----
 const fruitList= ["Painapple", "Banana", "Apple", "Mango", "Orange"];
 
 fruitList.sort();
@@ -1312,7 +1312,7 @@ const Arr=[100,2,3,1,4,1,1,122];
 console.log(Math.max.apply(null, Arr));//null as a for no need to 'this' and its call the Arr for max value;
 
 
-//-----------JS Closures------------> Closures for Encapsulation
+//----VERY IMPORTANT TOPICS-------JS Closures------------> Closures for Encapsulation
 
 
 
@@ -1342,7 +1342,7 @@ const counterFn = (function () {
   return function () { //Annonymous functions
     return ++count;
   };
-})();
+})(); 
 
 
 function myCounter() {
@@ -2074,3 +2074,78 @@ function collectPtag() {
 .NodeList items can only be accessed by their index number. 
 
 */
+
+
+
+
+//-------------**************DOM Project JavaScript**********-------------------
+
+
+//done with dom project
+
+
+//-------------**************DJS BOM(JavaScript Window - The Browser Object Model)*********-------------------
+
+//---------window---------
+
+
+let myWindow;
+
+const width = document.getElementById('width');
+const height = document.getElementById('height');
+
+width.innerHTML = "The width is: " + window.innerWidth;
+height.innerHTML = "The height is: " + window.innerHeight;
+
+
+function openWindow(){
+  myWindow=window.open("https://www.google.com/", "_self");
+
+}
+function closeWindow() {
+  if (myWindow && !myWindow.closed) {
+      myWindow.close();
+  } else {
+      alert("Window is already closed or not opened.");
+  }
+}
+
+
+//-----locations-------
+
+// window.location.href returns the href (URL) of the current page
+// window.location.hostname returns the domain name of the web host
+// window.location.pathname returns the path and filename of the current page
+// window.location.protocol returns the web protocol used (http: or https:)
+// window.location.assign() loads a new document
+
+
+//---------history-------------------
+
+
+// The window.history object contains the browsers history.
+
+// Window History
+// The window.history object can be written without the window prefix.
+
+// To protect the privacy of the users, there are limitations to how JavaScript can access this object.
+
+// Some methods:
+
+// history.back() - same as clicking back in the browser
+// history.forward() - same as clicking forward in the browser
+
+
+
+//-----------JavaScript Window Navigator--------
+
+// The window.navigator object can be written without the window prefix.
+
+// Some examples:
+
+// navigator.cookieEnabled
+// navigator.appCodeName
+// navigator.platform
+
+
+//----------JavaScript Popup Boxes----------
