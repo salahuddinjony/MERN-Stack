@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web API Example</title>
 </head>
 <body>
-    
+
+<!--Web Form API -->
+<input type="number" value="100" min="100" max="300" required name="number" id="id1">
+<button onclick="validation()">Ok</button>
+<p id="demo"></p>
+
+<!-- Web History API -->
+<button onclick="historyLength()">Show History Length</button>
+<button onclick="historyBack()">Back</button>
+<button onclick="historyForward()">Forward</button>
+<button onclick="historyGo(2)">Go Forward 2 Pages</button>
+
+<!-- Web Storage API -->
+
+<button onclick="setLocalStorage('name', 'salah')">Set LocalStorage</button>
+<button onclick="getLocalStorage('name')">Get LocalStorage</button>
+<button onclick="removeLocalStorage('name')">Remove LocalStorage</button>
+<button onclick="clearLocalStorage()">Clear LocalStorage</button>
+<button onclick="lengthLocalStorage()">Length LocalStorage</button>
+
+<!-- Web Workers API -->
+
+
+<button onclick="startWorker()"></button>
+<button onclick="stopWorker()"></button>
+
+<p id="worker"></p>
+
+
+<!-- JavaScript Fetch API -->
+
+
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
