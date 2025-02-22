@@ -1602,6 +1602,7 @@ document.getElementById("clock").innerHTML=d.getHours()+":"+d.getMinutes()+":"+d
 let statusT=true;
 
 //promise definations
+
 const promise=new Promise(function(resolve,reject){
   console.log("It's Processing...");
   setTimeout(function(){

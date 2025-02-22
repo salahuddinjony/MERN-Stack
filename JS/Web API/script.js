@@ -131,4 +131,32 @@ function stopWorker(){
 
 
 //------------JavaScript Fetch API--------
+const display=document.getElementById("data");
 
+/* 
+
+function fetchData(){
+    fetch("http://127.0.0.1:5500/JS/Web%20API/data.txt")
+        .then((res) => res.text())
+        .then((data) => {
+            console.log("Hello2"); // This will log after the data is fetched
+            display.innerText = data;
+        })
+        .catch((error) => {
+            console.error("Error fetching data: ", error);
+        });
+    console.log("Hello1"); // This will log immediately after the fetch is initiated
+} 
+
+*/
+
+
+//Now we can use async functions
+
+async function fetchData() {
+    const res=await  fetch("http://127.0.0.1:5500/JS/Web%20API/data.txt");
+    const data =await res.text();
+
+    display.innerText=data;
+    
+}

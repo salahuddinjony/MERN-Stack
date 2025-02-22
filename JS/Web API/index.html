@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<!--Web Form API -->
+<!-- Web Form API -->
 <input type="number" value="100" min="100" max="300" required name="number" id="id1">
 <button onclick="validation()">Ok</button>
 <p id="demo"></p>
@@ -19,7 +19,6 @@
 <button onclick="historyGo(2)">Go Forward 2 Pages</button>
 
 <!-- Web Storage API -->
-
 <button onclick="setLocalStorage('name', 'salah')">Set LocalStorage</button>
 <button onclick="getLocalStorage('name')">Get LocalStorage</button>
 <button onclick="removeLocalStorage('name')">Remove LocalStorage</button>
@@ -27,18 +26,13 @@
 <button onclick="lengthLocalStorage()">Length LocalStorage</button>
 
 <!-- Web Workers API -->
-
-
-<button onclick="startWorker()"></button>
-<button onclick="stopWorker()"></button>
-
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
 <p id="worker"></p>
 
-
 <!-- JavaScript Fetch API -->
-
-
-
+<button onclick="fetchData()">Fetch Data</button>
+<p id="data"></p>
 
 <script src="script.js"></script>
 
