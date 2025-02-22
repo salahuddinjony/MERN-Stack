@@ -168,11 +168,13 @@ async function fetchData() {
 
 
 //------------Web Geolocation API--------
-const displayLocation = document.getElementById("locations");
 
+const displayLocation = document.getElementById("locations");
+let watchID;
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        // navigator.geolocation.getCurrentPosition(showPosition, showError);
+        watchID=navigator.geolocation.watchPosition(showPosition, showError);
     } else {
         displayLocation.innerHTML = "Geolocation is not available in your browser"; // Fixed assignment
     }
@@ -202,5 +204,14 @@ function showError(error) {
             break;
     }
 }
+
+function stopTracking(){
+    if(watchID){
+        navigator.geolocation.clearWatch(watchID);
+        alert("Stopped tracking.")
+    }
+}
+
+//watchPosition() - Returns the current position of the user and continues to return updated position as the user moves (like the GPS in a car).
 
 
