@@ -131,6 +131,8 @@ function stopWorker(){
 
 
 //------------JavaScript Fetch API--------
+
+
 const display=document.getElementById("data");
 
 /* 
@@ -160,3 +162,45 @@ async function fetchData() {
     display.innerText=data;
     
 }
+
+
+
+
+
+//------------Web Geolocation API--------
+const displayLocation = document.getElementById("locations");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        displayLocation.innerHTML = "Geolocation is not available in your browser"; // Fixed assignment
+    }
+}
+
+function showPosition(position) {
+    displayLocation.innerHTML =
+        "Latitude: " + 
+        position.coords.latitude +
+        "<br/>Longitude: " + 
+        position.coords.longitude;
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            displayLocation.innerHTML = "User denied the request for Geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            displayLocation.innerHTML = "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            displayLocation.innerHTML = "The request to get user location timed out.";
+            break;
+        case error.UNKNOWN_ERROR:
+            displayLocation.innerHTML = "An unknown error occurred.";
+            break;
+    }
+}
+
+
