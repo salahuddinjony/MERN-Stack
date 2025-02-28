@@ -32,7 +32,7 @@ function loadData() {
             console.error("Error fethching data: ", this.status,this.statusText);
           }
         
-    };
+    };  
 
     // Prepare request - methods: GET, POST, PUT, PATCH, DELETE
     // xhr.open("GET", "data.txt",true); //open(method, url, async)

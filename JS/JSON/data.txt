@@ -1,0 +1,1 @@
+{"Name":"Jony","Age":26,"Book":{"Name":"Samne Likhbo","Topics":"programming"},"Array":["Hello",20,113,true,[1,2,3,4,4]],"Aim":"To be a Millioner","disease":null,"Device":"MacBook Pro M3 Pro"}
